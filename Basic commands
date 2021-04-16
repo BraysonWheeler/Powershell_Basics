@@ -1,0 +1,100 @@
+Can be used on servers etc..
+Always run as admin
+Properties can change buffer size, fonts, options
+	turn on quick edit mode to copy and paste
+
+
+Rules:
+	all syntax is in form of verb-object.
+	verb-noun
+
+code/commands:
+	start-transcript  // not case sensitive.
+		First thing you do when starting a session!
+		Keeps a running log of everything we do in a session.
+		saved in documents folder
+
+	can install modules to help make powershell more powerful
+		find-module -tag Telegram
+		
+	stop-transcript
+		stops transcript
+
+
+
+	get-history
+		shows all input previously
+		
+	get-timezone
+		shows timezone of where we are
+		
+	set-timezone
+		to set timezone
+
+	get-command
+		gets list of commands we can run in the section we are in
+
+	get-command -noun S*
+		example result Set-StoragebusProfile
+
+	get-command -noun Service
+		gives every command dealing with service.
+
+	get-service
+		gives  status, name, and displayname.
+		the displayname is Object we can manipulate.
+
+	get-help get-service
+	same as man pages for verb-noun
+
+	get-help get-service -examples
+		every one will have an example some are wrong some are correct.
+		gives examples of different ways to use.
+
+	get-help get-service -online
+		online version offered by microsoft
+		much better than examples
+
+	get-random
+		returns a random number
+		
+	get-proccess
+		gets proccesss running
+
+	get-process -Name MicrosoftEdge
+		gets all microsoft edge processes
+
+	get-process -name firefox | get-member
+		get member will help you understand why type of object your dealing with 
+			get-random | get-member is system.int32 just a normal int data type
+				while
+				get-date -name | firefox returns
+					TypeName: System.Diagnostics.Process
+			
+		shows all properties and all methods assosciated with specific object type.
+
+		shows Methods these are functions to do stomething car.stop(),car.go()
+		shows Properties things we know about an object car.color = red; car.doors = 4; car.maker = honda;
+			can see how much cpu is being used by a process
+			can see how much mem is being used
+			get-process -name firefox | select-object *
+				returns all thes properties with all there info values
+				
+	get-date | get-member
+		returns us get-date object
+		the get-member gives us everything inside it
+		get-date | format-list
+			gets the date properties like get-member but displays neatly
+
+ 
+Aliases similar to cmd commands
+	cls
+		clear screen
+	cd
+
+	get-alias cls
+		gives powershell verb-noun version of it
+		cls -> clear-host
+
+
+
